@@ -10,6 +10,7 @@ namespace VacationPlanner.Models
         [Key]
         public int EmpId { get; set; }
         public string Name { get; set; }
+
         public ICollection<Vacation> Vacations { get; set; }
     }
 }

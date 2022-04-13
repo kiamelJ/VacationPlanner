@@ -11,6 +11,7 @@ namespace VacationPlanner.Models
         public DbSet<Vacation> Vacations { get; set; }
 
 
+        //Populate Employee table
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Employee>().HasData(
@@ -31,6 +32,8 @@ namespace VacationPlanner.Models
                 }
                 );
         }
+
+        //Connectionstring
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(@"data source=.\sqlexpress; initial catalog=VacationPlanner; integrated security=sspi;");

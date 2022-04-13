@@ -9,6 +9,7 @@ namespace VacationPlanner
 {
     public class Handler
     {
+        //Simple menu for navigation
         public static bool MainMenu()
         {
 
@@ -53,6 +54,7 @@ namespace VacationPlanner
             }
         }
 
+
         public static void MakeReport()
         {
             Console.Clear();
@@ -60,6 +62,8 @@ namespace VacationPlanner
             Console.WriteLine("Hello Employee.\r\n");
             Console.WriteLine("Enter your name for leave application (list of available names below):\r\n");
 
+            //Gets and prints employee list from Employee table
+            //Fills no other function then to display employees to choose from.
             var employeeList = context.Employees.ToList();
             foreach (var item in employeeList)
             {
@@ -75,13 +79,16 @@ namespace VacationPlanner
             Console.WriteLine("Enter start date of vacation/leave (YYYY-MM-DD):");
             CultureInfo provider = CultureInfo.InvariantCulture;
             var start = Console.ReadLine();
+            //Using DateTime.ParseExact to format input to correct DateTime format
             DateTime startDate = DateTime.ParseExact(start, "yyyy-MM-dd", provider);
 
             Console.WriteLine("Enter end date of vacation/leave (YYYY-MM-DD):");
             var end = Console.ReadLine();
             DateTime endDate = DateTime.ParseExact(end, "yyyy-MM-dd", provider);
 
+            //Sets EmployeeId from Employee table to Name in Vacation table if name is correct.
             var employee = context.Employees.Single(e => e.Name == name);
+
 
             Vacation vacation = new Vacation()
             {
@@ -89,7 +96,6 @@ namespace VacationPlanner
                 Name = name,
                 StartDate = startDate,
                 EndDate = endDate,
-                //RegDate = new DateTime(2022, 03, 29, 15, 30, 00),
                 RegDate = DateTime.Now,
                 Employee = employee
 
