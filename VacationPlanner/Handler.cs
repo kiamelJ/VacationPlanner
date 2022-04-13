@@ -89,6 +89,7 @@ namespace VacationPlanner
                 Name = name,
                 StartDate = startDate,
                 EndDate = endDate,
+                //RegDate = new DateTime(2022, 03, 29, 15, 30, 00),
                 RegDate = DateTime.Now,
                 Employee = employee
 
@@ -122,7 +123,6 @@ namespace VacationPlanner
                 Console.WriteLine($"Leave/Vacation: {item.Type}");
                 Console.WriteLine($"Start date: {item.StartDate.ToString("yyyy-MM-dd")}");
                 Console.WriteLine($"End date: {item.EndDate.ToString("yyyy-MM-dd")}");
-                //Console.WriteLine($"Date for registration: {item.RegDate.ToString("yyyy-MM-dd")}");
                 Console.WriteLine(new string('-', (40)));
                 Console.WriteLine();
             }
@@ -140,6 +140,8 @@ namespace VacationPlanner
             foreach (var item in date2)
             {
                 Console.WriteLine($"Employee name: {item.Name}");
+                Console.WriteLine($"Start date: {item.StartDate.ToString("yyyy-MM-dd")}");
+                Console.WriteLine($"End date: {item.EndDate.ToString("yyyy-MM-dd")}");
                 Console.WriteLine($"Days applied for: {(item.EndDate - item.StartDate).TotalDays + 1}");
                 Console.WriteLine($"Date of registration: {item.RegDate.ToString("yyyy-MM-dd HH:mm")}");
                 Console.WriteLine(new string('-', (40)));
